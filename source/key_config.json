@@ -1,25 +1,52 @@
 {
-  "do": "1",
-  "re": "2",
-  "mi": "3",
-  "fa": "4",
-  "sol": "5",
-  "la": "6",
-  "si": "7",
+  "keyboard": {
+    "do": "1",
+    "re": "2",
+    "mi": "3",
+    "fa": "4",
+    "sol": "5",
+    "la": "6",
+    "si": "7",
 
-  "d1": "q",
-  "r1": "w",
-  "m1": "e",
-  "f1": "r",
-  "s1l": "t",
-  "l1": "y",
-  "s1": "u",
+    "d1": "q",
+    "r1": "w",
+    "m1": "e",
+    "f1": "r",
+    "s1l": "t",
+    "l1": "y",
+    "s1": "u",
 
-  "SPACE": "space",
-  "PLURAL": "p",
-  "NEWLINE": "return",
-  "BACKSPACE": "backspace",
+    "SPACE": "space",
+    "PLURAL": "p",
+    "NEWLINE": "return",
+    "BACKSPACE": "backspace",
 
-  "UPSIZE": "up arrow",
-  "DOWNSIZE": "down arrow"
+    "UPSIZE": "up arrow",
+    "DOWNSIZE": "down arrow"
+  },
+  "midi": {
+    "do": "C4",
+    "re": "D4",
+    "mi": "E4",
+    "fa": "F4",
+    "sol": "G4",
+    "la": "A4",
+    "si": "B4",
+
+    "d1": "C5",
+    "r1": "D5",
+    "m1": "E5",
+    "f1": "F5",
+    "s1l": "G5",
+    "l1": "A5",
+    "s1": "B5",
+
+    "SPACE": "placeholder1",
+    "PLURAL": "placeholder2",
+    "NEWLINE": "placeholder3",
+    "BACKSPACE": "placeholder4",
+
+    "UPSIZE": "placeholder5",
+    "DOWNSIZE": "placeholder6"
+  }
 }

@@ -4,6 +4,7 @@
 # all code by CUBE
 # all stenograph images by misolsi misido, owner of the la lasiresa discord server
 
+import math
 from key_input import *
 from renderer import *
 
@@ -32,6 +33,21 @@ FPS = 30
 BGCOLOR = WHITE
 
 pygame.init()
+pygame.midi.init()
+
+# midi_count = pygame.midi.get_count()
+# for device in range(midi_count):
+#     print(pygame.midi.get_device_info(device))
+
+# sets midi device to default midi device, if a default exists
+default_midi = pygame.midi.get_default_input_id()
+if default_midi < 0:
+    midi_enabled = False
+    pygame.midi.quit()
+else:
+    midi_enabled = True
+    midi_input = pygame.midi.Input(default_midi)
+
 screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 pygame.display.set_caption("My Game")
 clock = pygame.time.Clock()
@@ -49,9 +65,22 @@ while running:
         # this one checks for the window being closed
         if event.type == pygame.QUIT:
             running = False
+            # close out of midi stuff
+            if midi_enabled:
+                midi_enabled = False
+                midi_input.close()
+                pygame.midi.quit()
             pygame.quit()
         # add any other events here (keys, mouse, etc.)
         InputProcessor.main(event)
+
+    if midi_enabled:
+        # check midi events
+        if midi_input.poll():
+            midi_events = midi_input.read(1000)
+            for event in midi_events:
+                InputProcessor.midi(event)
+                # print(pygame.midi.midi_to_ansi_note(event[0][1]))
 
     screen.fill(BGCOLOR)
 
